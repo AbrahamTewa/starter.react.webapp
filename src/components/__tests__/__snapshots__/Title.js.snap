@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Basic tests Emtpy string 1`] = `<h1 />`;
+
+exports[`Basic tests Simple string 1`] = `
+<h1>
+  One simple string
+</h1>
+`;

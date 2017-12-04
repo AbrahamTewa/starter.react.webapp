@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Input with text 1`] = `
+<input
+  defaultValue="Enter title"
+  onChange={[Function]}
+  type="text"
+/>
+`;
+
+exports[`Storyshots Title with text 1`] = `
+<h1>
+  tox
+</h1>
+`;
+
+exports[`Storyshots Title without text 1`] = `<h1 />`;

@@ -13,7 +13,6 @@ describe('Basic tests', () => {
         let title;
 
         title = <Title/>;
-
         // Snapshot
         render           = renderer.create(title);
         expect(render.toJSON()).toMatchSnapshot();

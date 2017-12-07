@@ -20,7 +20,7 @@
     "start": "node server.js ",
     "test": "jest --config jest.config.json",
     "test-cov": "grunt clean:coverage && jest --config jest.config.json --coverage",
-    "watch": "webpack-dev-server --progress --inline --hot",
+    "watch": "webpack-dev-server --progress --hot -d",
     "watch:storybook": "start-storybook -p 9001 -c storybook"
   },
   "repository": {
@@ -30,10 +30,13 @@
   "dependencies": {
     "enzyme-adapter-react-16": "^1.0.4",
     "express": "^4.16.2",
+    "history": "^4.7.2",
     "prop-types": "^15.6.0",
     "react": "^16.1.0",
-    "react-dom": "^16.1.0",
+    "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-redux": "^4.0.8",
     "redux": "^3.7.2"
   },
   "devDependencies": {
@@ -73,6 +76,7 @@
     "grunt-stylelint": "^0.9.0",
     "grunt-webpack": "^3.0.2",
     "gulp": "^3.9.1",
+    "html-webpack-plugin": "^2.30.1",
     "istanbul": "^0.4.5",
     "jest": "^21.2.1",
     "jsdoc": "^3.5.5",
@@ -88,8 +92,8 @@
     "stylelint": "^8.2.0",
     "stylelint-webpack-plugin": "^0.9.0",
     "uglify-es": "^3.1.9",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.4"
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.6"
   },
   "optionalDependencies": {
     "fsevents": "*"

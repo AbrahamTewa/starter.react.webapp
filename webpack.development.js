@@ -13,6 +13,7 @@ const SOURCE_FOLDER = path.resolve(__dirname, 'src');
 export default { devtool : 'source-map'
                , devServer: { hot: true
                             , contentBase: false
+                            , historyApiFallback: true
                             , publicPath: '/'}
                , entry   : ['./src/index.js'
                            ,'./src/index.scss']

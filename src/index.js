@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
+import { Link } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 // ============================================================
@@ -44,6 +45,7 @@ function initialize() {
                 <div>
                     <Route path="/" component={ App } />
                     <Route path="/login" component={ Authentication }/>
+                    <Link to='/login'>Login</Link>
                 </div>
             </Router>
         </Provider>,
@@ -51,5 +53,4 @@ function initialize() {
     );
 }
 
-console.log('xx');
 document.addEventListener('DOMContentLoaded', initialize);

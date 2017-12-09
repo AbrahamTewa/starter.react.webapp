@@ -14,7 +14,8 @@ export default { devtool : 'source-map'
                , devServer: { hot: true
                             , contentBase: false
                             , historyApiFallback: true
-                            , publicPath: '/'}
+                            , publicPath: '/'
+                            , watchOptions: {ignored: /node_modules/}}
                , entry   : ['./src/index.js'
                            ,'./src/index.scss']
                , module  : { rules: [{ enforce: 'pre'

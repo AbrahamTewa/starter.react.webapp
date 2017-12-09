@@ -6,6 +6,8 @@ import React        from 'react';
 // Scene
 
 function Authentication() {
+
+    console.log('xxx');
     return (
         <div>
             Login

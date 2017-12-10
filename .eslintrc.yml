@@ -2,9 +2,7 @@ env:
   browser: true
   es6: true
 extends:
-  - eslint:recommended
-  - plugin:react/recommended
-  - plugin:jest/recommended
+  - airbnb
 parserOptions:
   ecmaVersion: 2017
   ecmaFeatures:
@@ -15,9 +13,9 @@ plugins:
   - jest
   - react
 rules:
-  array-bracket-spacing:
-    - 2
-    - never
+  brace-style:
+    - error
+    - stroustrup
   indent:
     - error
     - 4
@@ -28,7 +26,29 @@ rules:
   quotes:
     - error
     - single
-  semi:
-    - error
-    - always
   no-console: 0
+
+  react/jsx-indent:
+    - error
+    - 4
+
+  react/jsx-indent-props:
+    - error
+    - 4
+
+  react/jsx-filename-extension:
+    - off
+
+  jsx-a11y/label-has-for: # Seems to bug
+    - off
+
+  jsx-a11y/anchor-is-valid:
+    - error
+    - component: a
+      specialLink:
+        - hrefLeft
+        - hrefRight
+      aspect:
+        - noHref
+        - invalidHref
+

@@ -10,8 +10,8 @@ import createBrowserHistory from 'history/createBrowserHistory';
 // ============================================================
 // Import modules
 import { configureStore, getStore} from './redux';
-import App from './scenes/App';
-import Authentication from './scenes/Authentication';
+import App from './pages/App';
+import Authentication from './pages/Authentication';
 
 // ============================================================
 // Module constants and variables

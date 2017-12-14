@@ -5,17 +5,21 @@ import PropTypes from 'prop-types';
 
 // ============================================================
 // Import modules
-import Header from './Header';
-import SignupForm from '../SignupForm';
+import Header from './Header/index';
+import Logo from './Logo';
+import SignupForm from '../../containers/SignupForm/index';
+import Slider from '../../components/Slider';
 
 // ============================================================
 // Container
 
-function HomePage({
+function LandingPage({
+    headerLinks,
     logoUrl,
     onLogin,
     onSignUp,
     resetPasswordAddress,
+    slides,
     signupTitle,
     signupSubtitle,
     signupHeaderText,
@@ -23,11 +27,13 @@ function HomePage({
     return (
         <div className="homepage">
             <Header
-                logoUrl={logoUrl}
+                links={headerLinks}
                 onLogin={onLogin}
                 resetPasswordAddress={resetPasswordAddress}
             />
             <main>
+                <Logo url={logoUrl} />
+                <Slider slides={slides} />
                 <SignupForm
                     onSignUp={onSignUp}
                     title={signupTitle}
@@ -39,18 +45,21 @@ function HomePage({
     );
 }
 
-HomePage.defaultProps = {
+LandingPage.defaultProps = {
     logoUrl: '',
     signupHeaderText: '',
     signupTitle: '',
     signupSubtitle: '',
 };
 
-HomePage.propTypes = {
+LandingPage.propTypes = {
+    headerLinks: PropTypes.arrayOf(PropTypes.string).isRequired,
     logoUrl: PropTypes.string,
     onLogin: PropTypes.func.isRequired,
     onSignUp: PropTypes.func.isRequired,
     resetPasswordAddress: PropTypes.string.isRequired,
+    // eslint-disable-next-line react/no-typos
+    slides: Slider.propTypes.isRequired,
     signupSubtitle: PropTypes.string,
     signupTitle: PropTypes.string,
     signupHeaderText: PropTypes.string,
@@ -58,4 +67,4 @@ HomePage.propTypes = {
 
 // ============================================================
 // Exports
-export default HomePage;
+export default LandingPage;

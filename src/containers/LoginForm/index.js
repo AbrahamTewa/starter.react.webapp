@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 // ============================================================
 // Import containers
 
-import InputLogin from '../form/InputLogin';
-import InputPassword from '../form/InputPassword';
+import InputLogin from '../../components/ux/form/InputLogin';
+import InputPassword from '../../components/ux/form/InputPassword';
 import SignupButton from './SignupButton';
 import LoginButton from './LoginButton';
 import ResetPasswordLink from './ResetPasswordLink';

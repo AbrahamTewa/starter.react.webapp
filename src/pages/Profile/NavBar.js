@@ -1,19 +1,24 @@
 // ============================================================
 // Import packages
-import React        from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 // ============================================================
-// Scene
+// Component
+function NavBar({ src }) {
 
-function Authentication() {
 
-    console.log('xxx');
+
     return (
-        <div>
-            Login
-        </div>);
+        <nav>
+        </nav>
+    );
 }
+
+NavBar.propTypes = {
+    src: PropTypes.string.isRequired,
+};
 
 // ============================================================
 // Exports
-export default Authentication;
+export default NavBar;

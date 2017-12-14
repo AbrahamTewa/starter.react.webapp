@@ -5,7 +5,7 @@ import React from 'react';
 // ============================================================
 // Import containers
 
-import InputText from '../form/InputText';
+import InputText from './InputText';
 
 // ============================================================
 // Scene

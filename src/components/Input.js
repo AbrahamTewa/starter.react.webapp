@@ -15,6 +15,10 @@ function Input({ title, onkeypress }) {
         />);
 }
 
+Input.defaultProps = {
+    onkeypress: undefined,
+};
+
 Input.propTypes = {
     onkeypress: PropTypes.func,
     title: PropTypes.string.isRequired,

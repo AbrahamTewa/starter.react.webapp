@@ -5,42 +5,18 @@ import PropTypes from 'prop-types';
 // ============================================================
 // Import containers
 
-import InputLogin from '../../components/ux/form/InputLogin';
-import InputPassword from '../../components/ux/form/InputPassword';
+import InputEmail from '../ux/form/InputEmail';
+import InputLogin from '../ux/form/InputLogin';
+import InputPassword from '../ux/form/InputPassword';
 import SignupButton from './SignupButton';
-import LoginButton from './LoginButton';
-import ResetPasswordLink from './ResetPasswordLink';
+import Header from './Header';
 
 // ============================================================
 // Container
-
 /**
- * Callback called when the form is submitted.
- * It's expected to return a promise that will be resolved once the
- * login has been checked.
- *
- * @callback LoginFormOnSubmit
- *
- * @param {LoginFormData} data
- * @returns {Promise.<LoginFormResult>}
+ * Signup form
  */
-
-/**
- * @typedef {Object} LoginFormData
- * @property {string} login
- * @property {string} password
- */
-
-/**
- * @typedef {Object} LoginFormResult
- * @property {string}  errorMessage
- * @property {boolean} success
- */
-
-/**
- * Login form
- */
-class LoginForm extends React.Component {
+class SignupForm extends React.Component {
     /**
      *
      * @param {Object} props
@@ -57,24 +33,17 @@ class LoginForm extends React.Component {
      * @returns {Promise}
      * @private
      */
-    async onSubmit(event) {
+    async onSignUp(event) {
         event.preventDefault();
+
         this.disable();
 
         try {
-            await this.props.onSubmit(this.getData());
+            await this.props.onSignUp(this.getData());
         }
         finally {
             this.enable();
         }
-    }
-
-    /**
-     * @private
-     */
-    onSignUp() {
-        this.disable();
-        this.props.onSignUp();
     }
 
     /**
@@ -84,6 +53,7 @@ class LoginForm extends React.Component {
      */
     getData() {
         return {
+            email: this.inputEmail.getValue(),
             login: this.inputLogin.getValue(),
             password: this.inputPassword.getValue(),
         };
@@ -123,16 +93,15 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        let signupButton;
+        let header;
 
-        if (this.props.onSignUp) {
-            signupButton = (<SignupButton
-                enabled={this.state.enabled}
-            />);
+        if (header) {
+            header = (<Header />);
         }
 
         return (
             <form onSubmit={() => this.onSubmit()}>
+                {header}
                 <InputLogin
                     enabled={this.state.enabled}
                     refs={(ref) => {
@@ -145,25 +114,50 @@ class LoginForm extends React.Component {
                         this.inputPassword = ref;
                     }}
                 />
-                {signupButton}
-                <LoginButton
+                <InputEmail
                     enabled={this.state.enabled}
+                    refs={(ref) => {
+                        this.inputEmail = ref;
+                    }}
                 />
-                <ResetPasswordLink link={this.props.resetPasswordAddress} />
+                <SignupButton
+                    enabled={this.state.enabled}
+                    onSignUp={() => this.onSubmit()}
+                />
             </form>);
     }
 }
 
-LoginForm.defaultProps = {
-    onSignUp: undefined,
-};
-
-LoginForm.propTypes = {
-    onSignUp: PropTypes.func,
-    onSubmit: PropTypes.func.isRequired,
-    resetPasswordAddress: PropTypes.string.isRequired,
+SignupForm.propTypes = {
+    onSignUp: PropTypes.func.isRequired,
 };
 
 // ============================================================
 // Exports
-export default LoginForm;
+export default SignupForm;
+
+// ============================================================
+// Exports
+/**
+ * Callback called when the form is submitted.
+ * It's expected to return a promise that will be resolved once the
+ * login has been checked.
+ *
+ * @callback SignupFormOnSubmit
+ *
+ * @param {SignupFormData} data
+ * @returns {Promise.<SignupFormResult>}
+ */
+
+/**
+ * @typedef {Object} SignupFormData
+ * @property {string} email
+ * @property {string} login
+ * @property {string} password
+ */
+
+/**
+ * @typedef {Object} SignupFormResult
+ * @property {string}  errorMessage
+ * @property {boolean} success
+ */

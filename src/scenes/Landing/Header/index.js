@@ -5,18 +5,19 @@ import PropTypes from 'prop-types';
 
 // ============================================================
 // Import modules
-import LoginForm from '../../../containers/LoginForm/index';
+import LoginForm from '../../../components/LoginForm';
 import Nav from './Nav';
+import services from '../services';
 
 // ============================================================
 // Container
 
-function Header({ links, onLogin, resetPasswordAddress }) {
+function Header({ links, resetPasswordAddress }) {
     return (
         <header>
             <Nav links={links} />
             <LoginForm
-                onSubmit={onLogin}
+                onLogin={services.loginUser}
                 resetPasswordAddress={resetPasswordAddress}
             />
         </header>
@@ -25,7 +26,6 @@ function Header({ links, onLogin, resetPasswordAddress }) {
 
 Header.propTypes = {
     links: PropTypes.arrayOf(PropTypes.string).isRequired,
-    onLogin: PropTypes.func.isRequired,
     resetPasswordAddress: PropTypes.string.isRequired,
 };
 

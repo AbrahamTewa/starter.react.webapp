@@ -38,7 +38,7 @@ class InputText extends React.Component {
                 <input
                     disabled={!this.props.enabled}
                     name={this.props.formName}
-                    onChange={() => this.onChange()}
+                    onChange={e => this.onChange(e)}
                     placeholder={this.props.placeholder}
                     value={this.state.value}
                     type={this.props.type}
@@ -63,7 +63,7 @@ InputText.propTypes = {
     formName: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     onChange: PropTypes.func,
-    type: PropTypes.oneOf(['email','password', 'text']),
+    type: PropTypes.oneOf(['email', 'password', 'text']),
 };
 
 // ============================================================

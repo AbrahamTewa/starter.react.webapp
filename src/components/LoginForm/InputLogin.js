@@ -2,14 +2,17 @@
 // Import packages
 import PropTypes from 'prop-types';
 import React from 'react';
-import { translate } from 'react-i18next';
+import { I18n } from 'react-i18next';
 // ============================================================
 // Import containers
 
-import InputText from './InputText';
+import InputText from '../ux/form/InputText';
 
 // ============================================================
 // Scene
+/**
+ * @property {InputText} inputText
+ */
 class InputLogin extends React.Component {
     /**
      * Return the login
@@ -17,22 +20,24 @@ class InputLogin extends React.Component {
      * @public
      */
     getValue() {
-        return this.inputText.getValue();
+        return this.inputText.getValue() || '';
     }
 
     render() {
-        const { t } = this.props;
-
         return (
-            <InputText
-                enabled={this.props.enabled}
-                formName="login"
-                label={t('loginLabel')}
-                onChange={this.props.onChange}
-                refs={(ref) => {
-                    this.inputText = ref;
-                }}
-            />
+            <I18n ns="form">
+                { t =>
+                    (<InputText
+                        enabled={this.props.enabled}
+                        formName="login"
+                        label={t('login.userLogin')}
+                        onChange={this.props.onChange}
+                        ref={(ref) => {
+                            this.inputText = ref;
+                        }}
+                    />)
+                }
+            </I18n>
         );
     }
 }
@@ -45,9 +50,8 @@ InputLogin.defaultProps = {
 InputLogin.propTypes = {
     enabled: PropTypes.bool,
     onChange: PropTypes.func,
-    t: PropTypes.func.isRequired,
 };
 
 // ============================================================
 // Exports
-export default translate('form')(InputLogin);
+export default InputLogin;

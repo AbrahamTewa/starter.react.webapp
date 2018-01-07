@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-env node */
 
 // ******************** NodeJS packages ********************
@@ -7,79 +8,90 @@ require('load-grunt-tasks')(grunt);
 
 // ******************** Script ********************
 
-/*eslint indent:0*/
 grunt.initConfig({
-    clean: { analysis : ['reports/analysis']
-           , build    : ['build/']
-           , coverage : ['reports/coverage']
-           , jsdoc    : ['doc/jsdoc/']
-           , storybook: ['doc/storybook/']}
+    clean: {
+        analysis: ['reports/analysis'],
+        build: ['build/'],
+        coverage: ['reports/coverage'],
+        jsdoc: ['doc/jsdoc/'],
+        storybook: ['doc/storybook/'],
+    },
 
-    , copy: {
+    copy: {
         html: {
             files: [{
                 expand: true,
                 cwd: 'src',
                 src: ['**/*.htm', '**/*.html'],
-                dest: 'build/'
-            }]
-        }
+                dest: 'build/',
+            }],
+        },
     },
 
     cssmin: {
-        options: {sourceMap: true},
+        options: { sourceMap: true },
         target: {
             files: {
-                'build/index.css': 'build/index.css'
-            }
-        }
-    }
-
-    , eslint: {
-        src: { expand: true
-             , cwd   : 'src'
-             , src   : ['**/*.js']
-             , ext   : '.js'}
-      , storybook: { expand: true
-                   , cwd   : 'storybook'
-                   , src   : ['**/*.js']
-                   , ext   : '.js'}
-      , tools: ['gruntfile.js'
-               ,'gruntfile.babel.js'
-               ,'server.js'
-               ,'webpack.config.js'
-               ,'webpack.development.js'
-               ,'webpack.production.js']
-    }
-
-    , jsonlint: {
-        options: { format: true
-                 , indent: 2}
-      , src  : { expand: true
-               , cwd   : 'src'
-               , src   : '**/*.json'}
-      , tools: { expand: false
-               , cwd   : '.'
-               , src   : ['*.json'
-                         ,'.*.json'
-                         ,'.babelrc']}
-    }
-
-    , sass: {
-        options: {
-            sourceMap: true
-        }
-        , build: {
-            files: { 'build/index.css' : 'src/index.scss'}
-        }
-    }
-
-    , stylelint: {
-        options: {
-            configFile: '.stylelintrc.json'
+                'build/index.css': 'build/index.css',
+            },
         },
-        src: ['src/**/*.{css,scss,sass}']
-    }
+    },
+
+    eslint: {
+        src: {
+            expand: true,
+            cwd: 'src',
+            src: ['**/*.js'],
+            ext: '.js',
+        },
+        storybook: {
+            expand: true,
+            cwd: 'storybook',
+            src: ['**/*.js'],
+            ext: '.js',
+        },
+        tools: ['gruntfile.js',
+            'gruntfile.babel.js',
+            'server.js',
+            'webpack.config.js',
+            'webpack.development.js',
+            'webpack.production.js'],
+    },
+
+    jsonlint: {
+        options: {
+            format: true,
+            indent: 2,
+        },
+        src: {
+            expand: true,
+            cwd: 'src',
+            src: '**/*.json',
+        },
+        tools: {
+            expand: false,
+            cwd: '.',
+            src: ['*.json',
+                '.*.json',
+                '.babelrc'],
+        },
+    },
+
+    sass: {
+        options: {
+            sourceMap: true,
+        },
+        build: {
+            files: { 'build/index.css': 'src/index.scss' },
+        },
+    },
+
+    stylelint: {
+        options: {
+            configFile: '.stylelintrc.json',
+        },
+        src: ['src/**/*.{css,scss,sass}'],
+    },
 });
 
 // Registering all tasks

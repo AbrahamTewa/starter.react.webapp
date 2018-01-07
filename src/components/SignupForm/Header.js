@@ -2,6 +2,7 @@
 // Import packages
 import React from 'react';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 // ============================================================
 // Scene
@@ -14,24 +15,22 @@ import PropTypes from 'prop-types';
  * @constructor
  * @public
  */
-function Header({ title, subtitle, text }) {
-    return (
-        <header>
-            <h1>{title}</h1>
-            <h2>{subtitle}</h2>
-            <p>{text}</p>
-        </header>);
+@translate(['Page.Landing'])
+class Header extends React.Component {
+    render() {
+        const { t } = this.props;
+
+        return (
+            <header>
+                <h1>{t('header.title')}</h1>
+                <h2>{t('header.subtitle')}</h2>
+                <p>{t('header.text')}</p>
+            </header>);
+    }
 }
 
-Header.defaultProps = {
-    subtitle: '',
-    text: '',
-};
-
 Header.propTypes = {
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string,
-    text: PropTypes.string,
+    t: PropTypes.func.isRequired,
 };
 
 // ============================================================

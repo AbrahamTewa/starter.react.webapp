@@ -1,16 +1,26 @@
+// ============================================================
+// Import packages
 import { connect } from 'react-redux';
+
+// ============================================================
+// Import modules
 import Input from '../components/Input';
-import {setTitle} from '../redux/actions';
+import { setTitle } from '../redux/app';
 
-
-function mapStateToProps (state) {
+// ============================================================
+// Functions
+function mapStateToProps(state) {
     return { title: state.action.title };
 }
 
 function mapDispatchToProps(dispatch) {
-    return {onkeypress: (event) => { dispatch(setTitle(event.target.value)); }};
+    return {
+        onkeypress: (event) => {
+            dispatch(setTitle(event.target.value));
+        },
+    };
 }
 
-const CurrentTitle = connect(mapStateToProps, mapDispatchToProps)(Input);
-
-export default CurrentTitle;
+// ============================================================
+// Exports
+export default connect(mapStateToProps, mapDispatchToProps)(Input);

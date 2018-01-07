@@ -27,4 +27,4 @@ Profile.propTypes = {
 
 // ============================================================
 // Exports
-export default Profile
+export default Profile;

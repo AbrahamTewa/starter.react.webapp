@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
  * @returns {XML}
  * @constructor
  */
-function Title({children}) {
+function Title({ children }) {
     return <h1>{children}</h1>;
 }
 
-Title.propTypes = { children: PropTypes.string };
+Title.propTypes = { children: PropTypes.string.isRequired };
 
 export default Title;
 

@@ -32,8 +32,12 @@ function Slider({ slides }) {
     );
 }
 
+Slider.defaultProps = {
+    slides: [],
+};
+
 Slider.propTypes = {
-    slides: PropTypes.arrayOf(SliderItem.propTypes).isRequired,
+    slides: PropTypes.arrayOf(PropTypes.shape(SliderItem.propTypes)),
 };
 
 // ============================================================

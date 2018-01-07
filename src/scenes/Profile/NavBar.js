@@ -3,23 +3,13 @@
 import React from 'react';
 
 // ============================================================
-// Scene
-
-/**
- *
- * @returns {React.Component}
- * @constructor
- */
-function LoginButton() {
+// Component
+function NavBar() {
     return (
-        <button
-            className="ui primary basic button"
-            type="submit"
-      >
-            Login
-      </button>);
+        <nav />
+    );
 }
 
 // ============================================================
 // Exports
-export default LoginButton;
+export default NavBar;

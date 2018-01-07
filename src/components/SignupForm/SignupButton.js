@@ -1,6 +1,7 @@
 // ============================================================
 // Import packages
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // ============================================================
 // Container
@@ -11,15 +12,26 @@ import React from 'react';
  * @returns {React.Component}
  * @constructor
  */
-function SignupButton(onClick) {
+function SignupButton({ enabled, onSignUp }) {
     return (
         <button
             className="ui secondary basic button"
-            onClick={onClick}>
+            disabled={!enabled}
+            onClick={onSignUp}
+        >
             Sign-up
         </button>
     );
 }
+
+SignupButton.defaultProps = {
+    enabled: true,
+};
+
+SignupButton.propTypes = {
+    enabled: PropTypes.bool,
+    onSignUp: PropTypes.func.isRequired,
+};
 
 // ============================================================
 // Exports

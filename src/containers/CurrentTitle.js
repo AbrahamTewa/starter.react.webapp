@@ -1,11 +1,17 @@
+// ============================================================
+// Import packages
 import { connect } from 'react-redux';
+
+// ============================================================
+// Import modules
 import Title from '../components/Title';
 
-
-function mapStateToProps (state) {
+// ============================================================
+// Functions
+function mapStateToProps(state) {
     return { children: state.action.title };
 }
 
-const CurrentTitle = connect(mapStateToProps)(Title);
-
-export default CurrentTitle;
+// ============================================================
+// Exports
+export default connect(mapStateToProps)(Title);
